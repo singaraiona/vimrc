@@ -1,0 +1,94 @@
+# =============================================================
+# ========== USER MACROS ======================================
+# =============================================================
+#
+$AUTHOR$    = Anton Kundenko
+$EMAIL$     = a.kundenko@samsung.net
+$COMPANY$   = Samsung Ukraine
+$COPYRIGHT$ = Copyright (c) $YEAR$, $AUTHOR$
+$sortmenus$ = no
+
+$includefile$   = doxygen.cpp.templates
+
+#
+# =============================================================
+# ========== USER TEMPLATES  /  C-STYLE =======================
+# =============================================================
+== block,long ==
+/**
+ * <CURSOR>
+ */
+#--------------------------------------------------------------
+== block,short ==
+/** <CURSOR> */
+#--------------------------------------------------------------
+== brief,detailed ==
+/**
+ * @brief <CURSOR>
+ * 
+ * Detailed description starts here.
+ */
+#--------------------------------------------------------------
+== class ==
+/**
+ * @class $?CLASSNAME$
+ * @brief <CURSOR>
+ */
+#--------------------------------------------------------------
+== function ==
+/**
+ * @brief <CURSOR>
+ * @param   
+ * @return  
+ */
+#--------------------------------------------------------------
+== FILE-header == start ==
+/**
+ *  @file  $FILE$
+ *  @brief <CURSOR>
+ *
+ *  Detailed description starts here.
+ *
+ *  @author  $AUTHOR$, $EMAIL$
+ *
+ *  @internal
+ *  Created  $DATE$
+ *  Company  $COMPANY$
+ *  Copyright  $COPYRIGHT$
+ * 
+ * ============================================================================
+ */
+
+#--------------------------------------------------------------
+== brief-after-member == append ==
+ /**< @brief <CURSOR> */
+#--------------------------------------------------------------
+== formula-in-text == insert == 
+ @f$ <CURSOR><SPLIT> @f$
+#--------------------------------------------------------------
+== formula-separate == below ==
+ *    @f[ <CURSOR> @f]
+#--------------------------------------------------------------
+== formula-equarray == below ==
+ * @f{equarray*}{<CURSOR>
+ * @f}
+#--------------------------------------------------------------
+== formula-environment == below ==
+ * @f{$?ENVIRONMENT$}{<CURSOR>
+ * @f}
+#--------------------------------------------------------------
+== note == below ==
+ * @note <CURSOR>
+#--------------------------------------------------------------
+== if-endif == below ==
+ * @if $?condition:u$<CURSOR><SPLIT>
+ * @endif
+#--------------------------------------------------------------
+== latexonly == below ==
+ * @latexonly<CURSOR><SPLIT>
+ * @endlatexonly
+#--------------------------------------------------------------
+== htmlonly == below ==
+ * @htmlonly<CURSOR><SPLIT>
+ * @endhtmlonly
+#--------------------------------------------------------------
