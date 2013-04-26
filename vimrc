@@ -1,31 +1,38 @@
 set t_Co=256
-set nocp
 filetype plugin on
-colorscheme molokai 
+set background=dark
+colorscheme solarized 
+
+set fileencodings=utf-8                                                         
+set nocompatible                                                                
+set modelines=0                                                                 
+set tabstop=4                                                                   
+set shiftwidth=4                                                                
+set softtabstop=4                                                               
+set visualbell                                                                  
+set cursorline                                                                  
+set laststatus=2                                                                
+set relativenumber                                                              
 set guifont=Terminus\ 12
-set number
-highlight ColorColumn guibg=#151825 ctermbg=234
+"highlight ColorColumn guibg=#151825 ctermbg=234
 set colorcolumn=80
+set ruler
 
 let g:clang_library_path="/usr/lib/llvm/"
 let g:clang_snippets = 1                                                        
 let g:clang_snippets_engine = 'clang_complete'
 let g:clang_complete_copen = 1
-" F6 - previous buffer
+let g:session_autoload = 'yes'                                                 
+let g:session_autosave = 'yes'
+
+" F6 - previous tab 
 nmap <C-F6> :tabprev<cr>
 vmap <C-F6> <esc>:tabprev<cr>i
 imap <C-F6> <esc>:tabprev<cr>i
-
-" F7 - next buffer
+" F7 - next tab 
 nmap <C-F7> :tabnext<cr>
 vmap <C-F7> <esc>:tabnext<cr>i
 imap <C-F7> <esc>:tabnext<cr>i
-
-set tabstop=4
-set shiftwidth=4
-set smarttab
-set et
-set ai
 
 nmap <M-F9> :q!<CR>
 nmap <M-F10> :w<CR> 
@@ -33,8 +40,6 @@ nmap <M-F11> :wq<CR>
 nmap <M-F5> :u<CR>
 nmap <M-F6> <C-R><CR>
 nnoremap <C-L>  :Tlist <CR>
-nmap <M-F7> :make <CR>
-"nmap <F7>   :make clean && make <CR> 
 nmap <C-F11> :tabnew<CR>
 imap <C-Space> <C-P>
 " Doxygen comment blocks mapping
@@ -42,7 +47,6 @@ map <S-H> :DoxyFILEHeader<CR>
 map <S-C> :DoxyClass<CR>
 map <S-B> :DoxyBlockLong<CR>
 map <S-F> :DoxyFunc<CR>
-map <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 " insert #ifdef FILE_NAME_H in C/C++ header to prevent include twice
 map <C-H> :HeaderGatesAdd<CR>
 map <C-E> :IfDefCplusPlusAdd<CR>
