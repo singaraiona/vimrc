@@ -1,7 +1,7 @@
 set t_Co=256
 filetype plugin on
 set background=dark
-colorscheme solarized 
+colorscheme fee 
 
 set fileencodings=utf-8                                                         
 set nocompatible                                                                
@@ -13,10 +13,12 @@ set visualbell
 set cursorline                                                                  
 set laststatus=2                                                                
 set relativenumber                                                              
-set guifont=Terminus\ 12
-"highlight ColorColumn guibg=#151825 ctermbg=234
+set guifont=Liberation\ 12
+highlight ColorColumn guibg=#8C8C8C
+"ctermbg=234
 set colorcolumn=80
 set ruler
+let Tlist_WinWidth = 60
 
 let g:clang_library_path="/usr/lib/llvm/"
 let g:clang_snippets = 1                                                        
