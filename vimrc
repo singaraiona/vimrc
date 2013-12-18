@@ -1,7 +1,5 @@
 set t_Co=256
 filetype plugin on
-set background=dark
-colorscheme fee 
 
 set fileencodings=utf-8                                                         
 set nocompatible                                                                
@@ -13,9 +11,12 @@ set visualbell
 set cursorline                                                                  
 set laststatus=2                                                                
 set relativenumber                                                              
-set guifont=Liberation\ 12
-highlight ColorColumn guibg=#8C8C8C
-"ctermbg=234
+set guifont=Terminus\ 12
+colorscheme anokha
+"set guifont=Cousine\ 10
+"set background=dark
+
+"highlight ColorColumn guibg=#8C8C8C
 set colorcolumn=80
 set ruler
 let Tlist_WinWidth = 60
