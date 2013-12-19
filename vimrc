@@ -13,9 +13,12 @@ set laststatus=2
 set relativenumber                                                              
 set number                                                             
 set guifont=Terminus\ 12
-colorscheme anokha
-"set guifont=Cousine\ 10
-"set background=dark
+
+if has('gui_running')
+	colorscheme anokha
+else
+    colorscheme wombat256
+endif
 
 "highlight ColorColumn guibg=#8C8C8C
 set colorcolumn=80
