@@ -11,6 +11,7 @@ set visualbell
 set cursorline                                                                  
 set laststatus=2                                                                
 set relativenumber                                                              
+set number                                                             
 set guifont=Terminus\ 12
 colorscheme anokha
 "set guifont=Cousine\ 10
@@ -71,3 +72,23 @@ if version >= 700
     set undolevels=1000
     set undoreload=10000
 endif
+
+function s:GenCscope()
+	exe 'silent' '!find' . ' -name' . ' *.[ch]pp' . ' -o' . ' -name' . ' *.h' . ' >' . ' ./cscope.files'
+	exe 'silent' '!cscope' ' -b' ' -i' ' cscope.files'
+	exe 'silent' '!ctags' ' -R'
+	:silent cscope reset
+	:silent set tags=tags
+endfunction
+
+function s:SetProjectDir(dir)
+	exe 'silent' 'cd' a:dir
+	:silent cscope add cscope.out
+	:silent set tags=tags
+endfunction
+
+:command! -nargs=1 -complete=dir Spdir call s:SetProjectDir(<f-args>)
+:command! GenCscope call s:GenCscope()
+
+map <C-X><C-D> :Spdir<Space>
+map <C-X><C-B> :GenCscope<CR>
