@@ -17,7 +17,7 @@ set guifont=Terminus\ 12
 if has('gui_running')
 	colorscheme anokha
 else
-    colorscheme wombat256
+    colorscheme sorcerer 
 endif
 
 "highlight ColorColumn guibg=#8C8C8C
