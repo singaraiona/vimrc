@@ -8,7 +8,7 @@ set tabstop=4
 set shiftwidth=4                                                                
 set softtabstop=4                                                               
 set visualbell                                                                  
-set cursorline                                                                  
+"set cursorline                                                                  
 set laststatus=2                                                                
 set relativenumber                                                              
 set number                                                             
@@ -82,12 +82,14 @@ function s:GenCscope()
 	exe 'silent' '!ctags' ' -R'
 	:silent cscope reset
 	:silent set tags=tags
+	redraw!
 endfunction
 
 function s:SetProjectDir(dir)
 	exe 'silent' 'cd' a:dir
 	:silent cscope add cscope.out
 	:silent set tags=tags
+	redraw!
 endfunction
 
 :command! -nargs=1 -complete=dir Spdir call s:SetProjectDir(<f-args>)
