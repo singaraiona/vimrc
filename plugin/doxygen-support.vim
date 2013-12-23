@@ -45,53 +45,15 @@ let s:Doxy_GlobalTemplateDir	= ''
 "------------------------------------------------------------------------------
 " Platform specific items
 "------------------------------------------------------------------------------
-let s:MSWIN =   has("win16") || has("win32") || has("win64") || has("win95")
-
-if	s:MSWIN
-  " ==========  MS Windows  ======================================================
-	"
-	if match( s:sourced_script_file, escape( s:vimfiles, ' \' ) ) == 0
-		" system wide installation
-		let s:installation						= 'system'
-		let s:plugin_dir							= $VIM.'/vimfiles/'
-		let s:Doxy_GlobalTemplateDir	= s:plugin_dir.'doxygen-support/templates'
-		let s:Doxy_GlobalTemplateFile = s:Doxy_GlobalTemplateDir.'/doxygen.templates'
-	else
-		" user installation assumed
-		let s:plugin_dir  						= $HOME.'/vimfiles/'
-	endif
-	"
-	let s:Doxy_LocalTemplateFile    = $HOME.'/vimfiles/doxygen-support/templates/doxygen.templates'
-	let s:Doxy_LocalTemplateDir     = fnamemodify( s:Doxy_LocalTemplateFile, ":p:h" ).'/'
-	let s:Doxy_CodeSnippets  				= $HOME.'/vimfiles/doxygen-support/codesnippets/'
-	let s:Doxy_IndentErrorLog				= $HOME.'/_indent.errorlog'
-	"
-  let s:escfilename 	= ''
-	let s:Doxy_Display	= ''
-	"
-else
-  " ==========  Linux/Unix  ======================================================
-	"
-	if match( expand("<sfile>"), expand("$HOME") ) == 0
-		" user installation assumed
-		let s:plugin_dir  	= $HOME.'/.vim/'
-	else
-		" system wide installation
-		let s:installation						= 'system'
-		let s:plugin_dir							= $VIM.'/vimfiles/'
-		let s:Doxy_GlobalTemplateDir	= s:plugin_dir.'doxygen-support/templates'
-		let s:Doxy_GlobalTemplateFile = s:Doxy_GlobalTemplateDir.'/doxygen.templates'
-	endif
-	"
-	let s:Doxy_LocalTemplateFile    = $HOME.'/.vim/doxygen-support/templates/doxygen.templates'
-	let s:Doxy_LocalTemplateDir     = fnamemodify( s:Doxy_LocalTemplateFile, ":p:h" ).'/'
-	let s:Doxy_CodeSnippets  				= $HOME.'/.vim/doxygen-support/codesnippets/'
-	let s:Doxy_IndentErrorLog				= $HOME.'/.indent.errorlog'
-	"
-  let s:escfilename 	= ' \%#[]'
-	let s:Doxy_Display	= $DISPLAY
-	"
-endif
+" ==========  Linux/Unix  ======================================================
+let s:plugin_dir  	= $HOME.'/.vim/'
+let s:Doxy_LocalTemplateFile    = $HOME.'/.vim/doxygen-support/templates/doxygen.templates'
+let s:Doxy_LocalTemplateDir     = fnamemodify( s:Doxy_LocalTemplateFile, ":p:h" ).'/'
+let s:Doxy_CodeSnippets  				= $HOME.'/.vim/doxygen-support/codesnippets/'
+let s:Doxy_IndentErrorLog				= $HOME.'/.indent.errorlog'
+"
+let s:escfilename 	= ' \%#[]'
+let s:Doxy_Display	= $DISPLAY
 "
 "------------------------------------------------------------------------------
 "  Control variables (user configurable)

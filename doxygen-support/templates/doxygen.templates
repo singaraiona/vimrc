@@ -3,8 +3,8 @@
 # =============================================================
 #
 $AUTHOR$    = Anton Kundenko
-$EMAIL$     = a.kundenko@samsung.net
-$COMPANY$   = Samsung Ukraine
+$EMAIL$     = anton@algotradinghub.com
+$COMPANY$   = Lynx
 $COPYRIGHT$ = Copyright (c) $YEAR$, $AUTHOR$
 $sortmenus$ = no
 
@@ -45,20 +45,12 @@ $includefile$   = doxygen.cpp.templates
 == FILE-header == start ==
 /**
  *  @file  $FILE$
- *  @brief <CURSOR>
- *
- *  Detailed description starts here.
- *
  *  @author  $AUTHOR$, $EMAIL$
  *
  *  @internal
  *  Created  $DATE$
- *  Company  $COMPANY$
- *  Copyright  $COPYRIGHT$
  * 
- * ============================================================================
  */
-
 #--------------------------------------------------------------
 == brief-after-member == append ==
  /**< @brief <CURSOR> */

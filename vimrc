@@ -25,10 +25,6 @@ set colorcolumn=80
 set ruler
 let Tlist_WinWidth = 60
 
-let g:clang_library_path="/usr/lib/llvm/"
-let g:clang_snippets = 1                                                        
-let g:clang_snippets_engine = 'clang_complete'
-let g:clang_complete_copen = 1
 let g:session_autoload = 'yes'                                                 
 let g:session_autosave = 'yes'
 
@@ -48,7 +44,6 @@ nmap <M-F5> :u<CR>
 nmap <M-F6> <C-R><CR>
 nnoremap <C-L>  :Tlist <CR>
 nmap <C-F11> :tabnew<CR>
-imap <C-Space> <C-P>
 " Doxygen comment blocks mapping
 map <S-H> :DoxyFILEHeader<CR>
 map <S-C> :DoxyClass<CR>
@@ -79,16 +74,16 @@ endif
 function s:GenCscope()
 	exe 'silent' '!find' . ' -name' . ' *.[ch]pp' . ' -o' . ' -name' . ' *.h' . ' >' . ' ./cscope.files'
 	exe 'silent' '!cscope' ' -b' ' -i' ' cscope.files'
-	exe 'silent' '!ctags' ' -R'
+	exe 'silent' '!ctags' ' -R' ' --c++-kinds=+pl' ' --fields=+iaS' ' --extra=+q' ' .'
 	:silent cscope reset
-	:silent set tags=tags
+	:silent set tags+=tags
 	redraw!
 endfunction
 
 function s:SetProjectDir(dir)
 	exe 'silent' 'cd' a:dir
 	:silent cscope add cscope.out
-	:silent set tags=tags
+	:silent set tags+=tags
 	redraw!
 endfunction
 
@@ -97,3 +92,4 @@ endfunction
 
 map <C-X><C-D> :Spdir<Space>
 map <C-X><C-B> :GenCscope<CR>
+
