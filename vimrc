@@ -14,14 +14,10 @@ set relativenumber
 set number                                                             
 set guifont=Terminus\ 12
 
-if has('gui_running')
-	colorscheme anokha
-else
-    colorscheme kolor 
-endif
+colorscheme molokai 
 
 "highlight ColorColumn guibg=#8C8C8C
-set colorcolumn=80
+"set colorcolumn=80
 set ruler
 let Tlist_WinWidth = 60
 
