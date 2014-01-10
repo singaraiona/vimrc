@@ -14,7 +14,7 @@ set relativenumber
 set number                                                             
 set guifont=Terminus\ 12
 
-colorscheme molokai 
+colorscheme jellybeans
 
 "highlight ColorColumn guibg=#8C8C8C
 "set colorcolumn=80
@@ -23,6 +23,12 @@ let Tlist_WinWidth = 60
 
 let g:session_autoload = 'yes'                                                 
 let g:session_autosave = 'yes'
+
+let g:clang_complete_auto = 0
+let g:clang_use_library = 1 
+let g:clang_close_preview = 1
+let g:clang_use_library = 1
+let g:clang_library_path = "/usr/lib64/"
 
 " F6 - previous tab 
 nmap <C-F6> :tabprev<cr>
@@ -67,11 +73,16 @@ if version >= 700
     set undoreload=10000
 endif
 
+function s:GenGlobalTags()
+	exe '!ctags' ' -R' ' -f' ' ./tagsg' ' --c++-kinds=+pl' ' --fields=+iaS' ' --extra=+q' ' /usr/include'
+endfunction
+
 function s:GenCscope()
 	exe 'silent' '!find' . ' -name' . ' *.[ch]pp' . ' -o' . ' -name' . ' *.h' . ' >' . ' ./cscope.files'
 	exe 'silent' '!cscope' ' -b' ' -i' ' cscope.files'
 	exe 'silent' '!ctags' ' -R' ' --c++-kinds=+pl' ' --fields=+iaS' ' --extra=+q' ' .'
 	:silent cscope reset
+	:silent set tags+=tagsg
 	:silent set tags+=tags
 	redraw!
 endfunction
@@ -85,7 +96,8 @@ endfunction
 
 :command! -nargs=1 -complete=dir Spdir call s:SetProjectDir(<f-args>)
 :command! GenCscope call s:GenCscope()
+:command! GenGlobalTags call s:GenGlobalTags()
 
 map <C-X><C-D> :Spdir<Space>
 map <C-X><C-B> :GenCscope<CR>
-
+map <C-X><C-F9> :GenGlobalTags<CR>
