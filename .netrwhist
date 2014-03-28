@@ -1,10 +1,3 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =8
-let g:netrw_dirhist_1='/data/work/Spyro/trunk/src/spyro'
-let g:netrw_dirhist_2='/etc/portage/package.unmask'
-let g:netrw_dirhist_3='/tmp/ath-dispatch/src/main'
-let g:netrw_dirhist_4='/tmp/ath-dispatch/src/main/java'
-let g:netrw_dirhist_5='/tmp/ath-dispatch/src/main/java/org'
-let g:netrw_dirhist_6='/tmp/ath-dispatch/src/main/java/org/jenkinsci'
-let g:netrw_dirhist_7='/tmp/ath-dispatch/src/main/java/org/jenkinsci/plugins'
-let g:netrw_dirhist_8='/tmp/ath-dispatch/src/main/java/org/jenkinsci/plugins/ath_dispatch'
+let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_1='/data/work/UHF/athMDretro/src'

@@ -30,6 +30,9 @@ let g:clang_close_preview = 1
 let g:clang_use_library = 1
 let g:clang_library_path = "/usr/lib64/"
 
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_confirm_extra_conf = 0
+
 " F6 - previous tab 
 nmap <C-F6> :tabprev<cr>
 vmap <C-F6> <esc>:tabprev<cr>i
@@ -49,7 +52,7 @@ nmap <C-F11> :tabnew<CR>
 " Doxygen comment blocks mapping
 map <S-H> :DoxyFILEHeader<CR>
 map <S-C> :DoxyClass<CR>
-map <S-B> :DoxyBlockLong<CR>
+"map <S-B> :DoxyBlockLong<CR>
 map <S-F> :DoxyFunc<CR>
 " insert #ifdef FILE_NAME_H in C/C++ header to prevent include twice
 map <C-H> :HeaderGatesAdd<CR>
@@ -101,3 +104,4 @@ endfunction
 map <C-X><C-D> :Spdir<Space>
 map <C-X><C-B> :GenCscope<CR>
 map <C-X><C-F9> :GenGlobalTags<CR>
+"inoremap <silent> <Esc> <C-O>:stopinsert<CR>
