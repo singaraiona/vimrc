@@ -10,7 +10,7 @@
 
 
 let s:style_list = [
-            \    { 'style' : ['/*' , '*' , '*/' , '*' ] , 'ft' : [ 'c' , 'java' , 'cpp' , 'javascript' , 'go' , 'php' , 'jsp' ] , 
+            \    { 'style' : ['/*' , '*' , '*/' , '*' ] , 'ft' : [ 'c' , 'java' , 'cpp' , 'javascript' , 'go' , 'php' , 'jsp', 'rust' ] , 
             \      'prefix' : {
             \                 'php' : '<?php',
             \                 'jsp' : '<%',

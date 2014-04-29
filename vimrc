@@ -104,4 +104,3 @@ endfunction
 map <C-X><C-D> :Spdir<Space>
 map <C-X><C-B> :GenCscope<CR>
 map <C-X><C-F9> :GenGlobalTags<CR>
-"inoremap <silent> <Esc> <C-O>:stopinsert<CR>
