@@ -210,6 +210,7 @@ let s:delimiterMap = {
     \ 'lilypond': { 'left': '%' },
     \ 'liquid': { 'left': '{%', 'right': '%}' },
     \ 'lisp': { 'left': ';', 'leftAlt': '#|', 'rightAlt': '|#' },
+    \ 'picolisp': { 'left': '#' },
     \ 'llvm': { 'left': ';' },
     \ 'lotos': { 'left': '(*', 'right': '*)' },
     \ 'lout': { 'left': '#' },
