@@ -8,6 +8,7 @@ set modelines=0
 set tabstop=4                                                                   
 set shiftwidth=4                                                                
 set softtabstop=4                                                               
+set expandtab
 set visualbell                                                                  
 "set cursorline                                                                  
 set laststatus=2                                                                
@@ -48,7 +49,8 @@ nmap <M-F10> :w<CR>
 nmap <M-F11> :wq<CR>
 nmap <M-F5> :u<CR>
 nmap <M-F6> <C-R><CR>
-nnoremap <C-L>  :Tlist <CR>
+nnoremap <C-L>  :Tlist<CR>
+nnoremap <C-J>  :NERDTreeToggle<CR>
 nmap <C-F11> :tabnew<CR>
 " Doxygen comment blocks mapping
 map <S-H> :DoxyFILEHeader<CR>
