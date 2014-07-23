@@ -1,4 +1,5 @@
 set t_Co=256
+set term=xterm-256color
 filetype plugin on
 filetype indent on
 
@@ -21,8 +22,6 @@ colorscheme jellybeans
 "highlight ColorColumn guibg=#8C8C8C
 "set colorcolumn=80
 set ruler
-let Tlist_WinWidth = 60
-
 let g:session_autoload = 'yes'                                                 
 let g:session_autosave = 'yes'
 
@@ -49,8 +48,9 @@ nmap <M-F10> :w<CR>
 nmap <M-F11> :wq<CR>
 nmap <M-F5> :u<CR>
 nmap <M-F6> <C-R><CR>
-nnoremap <C-L>  :Tlist<CR>
-nnoremap <C-J>  :NERDTreeToggle<CR>
+nnoremap <C-L>  :NERDTreeToggle<CR>
+nnoremap <C-J>  :ScreenShell<CR>
+nnoremap <C-K>  :ScreenQuit<CR>
 nmap <C-F11> :tabnew<CR>
 " Doxygen comment blocks mapping
 map <S-H> :DoxyFILEHeader<CR>
@@ -107,3 +107,9 @@ endfunction
 map <C-X><C-D> :Spdir<Space>
 map <C-X><C-B> :GenCscope<CR>
 map <C-X><C-F9> :GenGlobalTags<CR>
+
+nmap <silent> <C-Up> :wincmd k<CR>
+nmap <silent> <C-Down> :wincmd j<CR>
+nmap <silent> <C-Left> :wincmd h<CR>
+nmap <silent> <C-Right> :wincmd l<CR>
+let g:ScreenShellGnuScreenVerticalSupport = 'native'
