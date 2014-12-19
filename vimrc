@@ -16,11 +16,12 @@ set laststatus=2
 set relativenumber                                                              
 set number                                                             
 set guifont=Terminus\ 12
+set nowrap
 
 colorscheme jellybeans
 
-"highlight ColorColumn guibg=#8C8C8C
-"set colorcolumn=80
+highlight ColorColumn ctermbg=235 guibg=#E6E6E6
+set colorcolumn=120
 set ruler
 let g:session_autoload = 'yes'                                                 
 let g:session_autosave = 'yes'
