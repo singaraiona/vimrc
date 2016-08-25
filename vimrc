@@ -5,9 +5,14 @@ filetype off
 "Vundle package manager
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'L9'
+Plugin 'scrooloose/nerdtree'
+Bundle 'bling/vim-airline'
+Plugin 'ryanoasis/vim-webdevicons'
+Bundle 'klen/python-mode'
+Plugin 'tell-k/vim-autopep8'
+Plugin 'ervandew/screen'
 call vundle#end()
 
 filetype plugin indent on
@@ -136,10 +141,4 @@ call NERDTreeHighlightFile('sh', 'Magenta', 'none', '#ff00ff', '#151515')
 let pymode_lint_unmodified = 1
 set mouse=a
 
-Plugin 'scrooloose/nerdtree'
-Bundle 'bling/vim-airline'
-Plugin 'ryanoasis/vim-webdevicons'
-Bundle 'klen/python-mode'
-Plugin 'tell-k/vim-autopep8'
-Plugin 'ervandew/screen'
 
