@@ -4,33 +4,29 @@ filetype plugin on
 filetype indent on
 
 set fileencodings=utf-8                                                         
-set nocompatible                                                                
-set modelines=0                                                                 
-set tabstop=4                                                                   
+set nocompatible
+"set modelines=0                                                                
+set tabstop=4
 set shiftwidth=4                                                                
-set softtabstop=4                                                               
+set softtabstop=4
 set expandtab
-set visualbell                                                                  
-"set cursorline                                                                  
-set laststatus=2                                                                
+set visualbell
+"set cursorline
+set guicursor+=n-v-c:blinkon0
+set laststatus=2
 set relativenumber                                                              
 set number                                                             
 set guifont=Terminus\ 12
 set nowrap
 
-colorscheme jellybeans
+"colorscheme jellybeans
+colorscheme molokai 
 
 highlight ColorColumn ctermbg=235 guibg=#E6E6E6
 set colorcolumn=120
 set ruler
 let g:session_autoload = 'yes'                                                 
 let g:session_autosave = 'yes'
-
-let g:clang_complete_auto = 0
-let g:clang_use_library = 1 
-let g:clang_close_preview = 1
-let g:clang_use_library = 1
-let g:clang_library_path = "/usr/lib64/"
 
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_confirm_extra_conf = 0
@@ -43,6 +39,9 @@ imap <C-F6> <esc>:tabprev<cr>i
 nmap <C-F7> :tabnext<cr>
 vmap <C-F7> <esc>:tabnext<cr>i
 imap <C-F7> <esc>:tabnext<cr>i
+"cycling buffer navigation
+nnoremap <Tab> :bnext<CR>
+nnoremap <S-Tab> :bprevious<CR>
 
 nmap <M-F9> :q!<CR>
 nmap <M-F10> :w<CR> 
@@ -80,20 +79,6 @@ if version >= 700
     set undoreload=10000
 endif
 
-function s:GenGlobalTags()
-	exe '!ctags' ' -R' ' -f' ' ./tagsg' ' --c++-kinds=+pl' ' --fields=+iaS' ' --extra=+q' ' /usr/include'
-endfunction
-
-function s:GenCscope()
-	exe 'silent' '!find' . ' -name' . ' *.[ch]pp' . ' -o' . ' -name' . ' *.h' . ' >' . ' ./cscope.files'
-	exe 'silent' '!cscope' ' -b' ' -i' ' cscope.files'
-	exe 'silent' '!ctags' ' -R' ' --c++-kinds=+pl' ' --fields=+iaS' ' --extra=+q' ' .'
-	:silent cscope reset
-	:silent set tags+=tagsg
-	:silent set tags+=tags
-	redraw!
-endfunction
-
 function s:SetProjectDir(dir)
 	exe 'silent' 'cd' a:dir
 	:silent cscope add cscope.out
@@ -102,15 +87,54 @@ function s:SetProjectDir(dir)
 endfunction
 
 :command! -nargs=1 -complete=dir Spdir call s:SetProjectDir(<f-args>)
-:command! GenCscope call s:GenCscope()
-:command! GenGlobalTags call s:GenGlobalTags()
-
-map <C-X><C-D> :Spdir<Space>
-map <C-X><C-B> :GenCscope<CR>
-map <C-X><C-F9> :GenGlobalTags<CR>
 
 nmap <silent> <C-Up> :wincmd k<CR>
 nmap <silent> <C-Down> :wincmd j<CR>
 nmap <silent> <C-Left> :wincmd h<CR>
 nmap <silent> <C-Right> :wincmd l<CR>
 let g:ScreenShellGnuScreenVerticalSupport = 'native'
+"airline plugin settings
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+"webdevicons plugin
+let g:webdevicons_enable = 1
+let g:webdevicons_enable_nerdtree = 1
+let g:webdevicons_enable_airline_tabline = 1
+let g:webdevicons_enable_airline_statusline = 1
+let g:WebDevIconsUnicodeDecorateFileNodes = 1
+let g:webdevicons_conceal_nerdtree_brackets = 1
+let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
+function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+    exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+    exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+endfunction
+
+call NERDTreeHighlightFile('q', 'green', 'none', 'green', '#151515')
+call NERDTreeHighlightFile('python', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
+call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
+call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
+call NERDTreeHighlightFile('sh', 'Magenta', 'none', '#ff00ff', '#151515')
+
+:nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+let pymode_lint_unmodified = 1
+
+"Vundle package manager configuration
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+filetype plugin indent on
+Plugin 'scrooloose/nerdtree'
+Bundle 'bling/vim-airline'
+Plugin 'ryanoasis/vim-webdevicons'
+Bundle 'klen/python-mode'
+Plugin 'tell-k/vim-autopep8'
+
