@@ -20,7 +20,7 @@ call vundle#end()
 
 filetype plugin indent on
 
-set fileencodings=utf-8
+set fileencodings=utf-6
 "set modelines=0
 set tabstop=4
 set shiftwidth=4
