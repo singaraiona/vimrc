@@ -4,7 +4,6 @@ set nocompatible
 "Vundle package manager
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-call vundle#begin('~/some/path/here')
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'L9'
