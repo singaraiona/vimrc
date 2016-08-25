@@ -8,9 +8,9 @@ call vundle#begin()
 Plugin 'tpope/vim-fugitive'
 Plugin 'L9'
 Plugin 'scrooloose/nerdtree'
-Bundle 'bling/vim-airline'
-Plugin 'ryanoasis/vim-webdevicons'
-Bundle 'klen/python-mode'
+Plugin 'vim-airline/vim-airline'
+Plugin 'ryanoasis/vim-devicons'
+Plugin 'klen/python-mode'
 Plugin 'tell-k/vim-autopep8'
 Plugin 'ervandew/screen'
 call vundle#end()
@@ -65,11 +65,6 @@ nnoremap <C-L>  :NERDTreeToggle<CR>
 nnoremap <C-J>  :ScreenShell<CR>
 nnoremap <C-K>  :ScreenQuit<CR>
 nmap <C-F11> :tabnew<CR>
-" Doxygen comment blocks mapping
-map <S-H> :DoxyFILEHeader<CR>
-map <S-C> :DoxyClass<CR>
-"map <S-B> :DoxyBlockLong<CR>
-map <S-F> :DoxyFunc<CR>
 " insert #ifdef FILE_NAME_H in C/C++ header to prevent include twice
 map <C-H> :HeaderGatesAdd<CR>
 map <C-E> :IfDefCplusPlusAdd<CR>
@@ -111,13 +106,13 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 "webdevicons plugin
-let g:webdevicons_enable = 1
-let g:webdevicons_enable_nerdtree = 1
-let g:webdevicons_enable_airline_tabline = 1
-let g:webdevicons_enable_airline_statusline = 1
-let g:WebDevIconsUnicodeDecorateFileNodes = 1
-let g:webdevicons_conceal_nerdtree_brackets = 1
-let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
+let g:devicons_enable = 1
+let g:devicons_enable_nerdtree = 1
+let g:devicons_enable_airline_tabline = 1
+let g:devicons_enable_airline_statusline = 1
+let g:DevIconsUnicodeDecorateFileNodes = 1
+let g:devicons_conceal_nerdtree_brackets = 1
+let g:DevIconsNerdTreeAfterGlyphPadding = '  '
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
     exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
     exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
