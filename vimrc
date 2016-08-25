@@ -13,6 +13,8 @@ Plugin 'ryanoasis/vim-devicons'
 Plugin 'klen/python-mode'
 Plugin 'tell-k/vim-autopep8'
 Plugin 'ervandew/screen'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'Valloric/YouCompleteMe'
 call vundle#end()
 
 filetype plugin indent on
