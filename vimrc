@@ -1,6 +1,7 @@
 set t_Co=256
 set term=xterm-256color
 set nocompatible
+filetype off
 "Vundle package manager
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -133,10 +134,12 @@ call NERDTreeHighlightFile('sh', 'Magenta', 'none', '#ff00ff', '#151515')
 
 :nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 let pymode_lint_unmodified = 1
+set mouse=a
 
 Plugin 'scrooloose/nerdtree'
 Bundle 'bling/vim-airline'
 Plugin 'ryanoasis/vim-webdevicons'
 Bundle 'klen/python-mode'
 Plugin 'tell-k/vim-autopep8'
+Plugin 'ervandew/screen'
 
