@@ -1,41 +1,49 @@
 set t_Co=256
 set term=xterm-256color
-filetype plugin on
-filetype indent on
-
-set fileencodings=utf-8                                                         
 set nocompatible
-"set modelines=0                                                                
+"Vundle package manager
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+call vundle#begin('~/some/path/here')
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'L9'
+call vundle#end()
+
+filetype plugin indent on
+
+set fileencodings=utf-8
+"set modelines=0
 set tabstop=4
-set shiftwidth=4                                                                
+set shiftwidth=4
 set softtabstop=4
 set expandtab
 set visualbell
 "set cursorline
-set guicursor+=n-v-c:blinkon0
+"set guicursor+=n-v-c:blinkon0
 set laststatus=2
-set relativenumber                                                              
-set number                                                             
+set relativenumber
+set number
 set guifont=Terminus\ 12
 set nowrap
 
 "colorscheme jellybeans
-colorscheme molokai 
+colorscheme molokai
 
 highlight ColorColumn ctermbg=235 guibg=#E6E6E6
 set colorcolumn=120
 set ruler
-let g:session_autoload = 'yes'                                                 
+let g:session_autoload = 'yes'
 let g:session_autosave = 'yes'
 
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_confirm_extra_conf = 0
 
-" F6 - previous tab 
+" F6 - previous tab
 nmap <C-F6> :tabprev<cr>
 vmap <C-F6> <esc>:tabprev<cr>i
 imap <C-F6> <esc>:tabprev<cr>i
-" F7 - next tab 
+" F7 - next tab
 nmap <C-F7> :tabnext<cr>
 vmap <C-F7> <esc>:tabnext<cr>i
 imap <C-F7> <esc>:tabnext<cr>i
@@ -44,7 +52,7 @@ nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
 
 nmap <M-F9> :q!<CR>
-nmap <M-F10> :w<CR> 
+nmap <M-F10> :w<CR>
 nmap <M-F11> :wq<CR>
 nmap <M-F5> :u<CR>
 nmap <M-F6> <C-R><CR>
@@ -127,11 +135,6 @@ call NERDTreeHighlightFile('sh', 'Magenta', 'none', '#ff00ff', '#151515')
 :nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 let pymode_lint_unmodified = 1
 
-"Vundle package manager configuration
-filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-filetype plugin indent on
 Plugin 'scrooloose/nerdtree'
 Bundle 'bling/vim-airline'
 Plugin 'ryanoasis/vim-webdevicons'
