@@ -18,6 +18,10 @@ Plugin 'ervandew/screen'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'ervandew/supertab'
+Plugin 'rust-lang/rust.vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'racer-rust/vim-racer'
+Plugin 'aperezdc/vim-template'
 call vundle#end()
 
 filetype plugin indent on
@@ -49,14 +53,7 @@ let g:session_autosave = 'yes'
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_confirm_extra_conf = 0
 
-" F6 - previous tab
-nmap <C-F6> :tabprev<cr>
-vmap <C-F6> <esc>:tabprev<cr>i
-imap <C-F6> <esc>:tabprev<cr>i
-" F7 - next tab
-nmap <C-F7> :tabnext<cr>
-vmap <C-F7> <esc>:tabnext<cr>i
-imap <C-F7> <esc>:tabnext<cr>i
+let g:rustfmt_autosave = 1
 "cycling buffer navigation
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
@@ -69,10 +66,6 @@ nmap <M-F6> <C-R><CR>
 nnoremap <C-L>  :NERDTreeToggle<CR>
 nnoremap <C-J>  :ScreenShell<CR>
 nnoremap <C-K>  :ScreenQuit<CR>
-nmap <C-F11> :tabnew<CR>
-" insert #ifdef FILE_NAME_H in C/C++ header to prevent include twice
-map <C-H> :HeaderGatesAdd<CR>
-map <C-E> :IfDefCplusPlusAdd<CR>
 " function to automatically sets file executable if it's script
 function ChMode()
     if getline(1) =~ "^#!"
@@ -109,16 +102,26 @@ let g:ScreenShellGnuScreenVerticalSupport = 'native'
 "airline plugin settings
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-"webdevicons plugin
-let g:devicons_enable = 1
-let g:devicons_enable_nerdtree = 1
-let g:devicons_enable_airline_tabline = 1
-let g:devicons_enable_airline_statusline = 1
-let g:DevIconsUnicodeDecorateFileNodes = 1
-let g:devicons_conceal_nerdtree_brackets = 1
-let g:DevIconsNerdTreeAfterGlyphPadding = '  '
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+"bdevicons plugin
+let g:webdevicons_enable = 1
+let g:webdevicons_enable_nerdtree = 1
+let g:webdevicons_enable_airline_tabline = 1
+let g:webdevicons_enable_airline_statusline = 1
+let g:webdevicons_enable_flagship_statusline = 1
+let g:webdevicons_conceal_nerdtree_brackets = 1
+let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
+let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
+let g:WebDevIconsUnicodeDecorateFileNodesDefaultSymbol = '*'
+let g:DevIconsEnableFoldersOpenClose = 1
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {} " needed
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['rs'] = '*'
+let g:templates_directory = expand('~/.vim/templates')
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
     exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
     exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
@@ -126,6 +129,7 @@ endfunction
 
 call NERDTreeHighlightFile('q', 'green', 'none', 'green', '#151515')
 call NERDTreeHighlightFile('python', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('rs', 'yellow', 'none', 'yellow', '#151515')
 call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
 call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
 call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#151515')
@@ -141,5 +145,5 @@ call NERDTreeHighlightFile('sh', 'Magenta', 'none', '#ff00ff', '#151515')
 :nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 let pymode_lint_unmodified = 1
 set mouse=a
-
+runtime! ftplugin/man.vim
 
