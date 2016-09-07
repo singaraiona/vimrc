@@ -22,6 +22,7 @@ Plugin 'rust-lang/rust.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'racer-rust/vim-racer'
 Plugin 'aperezdc/vim-template'
+Plugin 'Chiel92/vim-autoformat'
 call vundle#end()
 
 filetype plugin indent on
@@ -53,7 +54,6 @@ let g:session_autosave = 'yes'
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_confirm_extra_conf = 0
 
-let g:rustfmt_autosave = 1
 "cycling buffer navigation
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
@@ -75,6 +75,13 @@ function ChMode()
     endif
 endfunction
 au BufWritePost * call ChMode()
+
+" autoformat plugin
+au BufWrite * :Autoformat
+let g:autoformat_autoindent = 1
+let g:autoformat_retab = 1
+let g:autoformat_remove_trailing_spaces = 1
+
 " history of changes
 if version >= 700
     set history=64
@@ -86,10 +93,10 @@ if version >= 700
 endif
 
 function s:SetProjectDir(dir)
-	exe 'silent' 'cd' a:dir
-	:silent cscope add cscope.out
-	:silent set tags+=tags
-	redraw!
+    exe 'silent' 'cd' a:dir
+    :silent cscope add cscope.out
+    :silent set tags+=tags
+    redraw!
 endfunction
 
 :command! -nargs=1 -complete=dir Spdir call s:SetProjectDir(<f-args>)
@@ -122,6 +129,7 @@ let g:DevIconsEnableFoldersOpenClose = 1
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {} " needed
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['rs'] = '*'
 let g:templates_directory = expand('~/.vim/templates')
+
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
     exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
     exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
