@@ -40,8 +40,14 @@ set laststatus=2
 set relativenumber
 set number
 set guifont=Terminus\ 12
+set linespace=3
 set nowrap
-
+set guioptions-=l
+set guioptions-=L
+set guioptions-=r
+set guioptions-=R
+set guioptions-=T
+set guioptions-=m
 "colorscheme jellybeans
 colorscheme molokai
 
@@ -105,6 +111,7 @@ nmap <silent> <C-Up> :wincmd k<CR>
 nmap <silent> <C-Down> :wincmd j<CR>
 nmap <silent> <C-Left> :wincmd h<CR>
 nmap <silent> <C-Right> :wincmd l<CR>
+inoremap <C-@> <C-x><C-o>
 let g:ScreenShellGnuScreenVerticalSupport = 'native'
 "airline plugin settings
 let g:airline_powerline_fonts = 1
