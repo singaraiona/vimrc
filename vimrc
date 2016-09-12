@@ -23,6 +23,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'racer-rust/vim-racer'
 Plugin 'aperezdc/vim-template'
 Plugin 'Chiel92/vim-autoformat'
+Plugin 'Raimondi/delimitMate'
 call vundle#end()
 
 filetype plugin indent on
