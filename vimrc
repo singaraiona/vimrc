@@ -40,16 +40,10 @@ set number
 set guifont=Terminus\ 12
 set linespace=3
 set nowrap
-"set guioptions-=l
-"set guioptions-=L
-"set guioptions-=r
-"set guioptions-=R
-"set guioptions-=T
-"set guioptions-=m
 colorscheme molokai
 
 highlight ColorColumn ctermbg=235 guibg=#E6E6E6
-"highlight MatchParen cterm=bold ctermbg=none ctermfg=white
+highlight MatchParen cterm=bold ctermbg=none ctermfg=white
 set colorcolumn=120
 set ruler
 let g:session_autoload = 'yes'
