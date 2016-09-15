@@ -35,24 +35,22 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 set visualbell
-"set cursorline
-"set guicursor+=n-v-c:blinkon0
 set laststatus=2
 set relativenumber
 set number
 set guifont=Terminus\ 12
 set linespace=3
 set nowrap
-set guioptions-=l
-set guioptions-=L
-set guioptions-=r
-set guioptions-=R
-set guioptions-=T
-set guioptions-=m
-"colorscheme jellybeans
+"set guioptions-=l
+"set guioptions-=L
+"set guioptions-=r
+"set guioptions-=R
+"set guioptions-=T
+"set guioptions-=m
 colorscheme molokai
 
 highlight ColorColumn ctermbg=235 guibg=#E6E6E6
+highlight MatchParen cterm=bold ctermbg=none ctermfg=white
 set colorcolumn=120
 set ruler
 let g:session_autoload = 'yes'
@@ -70,6 +68,7 @@ nmap <M-F10> :w<CR>
 nmap <M-F11> :wq<CR>
 nmap <M-F5> :u<CR>
 nmap <M-F6> <C-R><CR>
+nmap <C-x> :shell<CR>
 nnoremap <C-L>  :NERDTreeToggle<CR>
 nnoremap <C-J>  :ScreenShell<CR>
 nnoremap <C-K>  :ScreenQuit<CR>
