@@ -23,13 +23,12 @@ Plugin 'scrooloose/syntastic'
 Plugin 'racer-rust/vim-racer'
 Plugin 'aperezdc/vim-template'
 Plugin 'Chiel92/vim-autoformat'
-Plugin 'Raimondi/delimitMate'
 call vundle#end()
 
 filetype plugin indent on
 
-set fileencodings=utf-6
-"set modelines=0
+set fileencodings=utf-8
+set modelines=0
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -50,7 +49,7 @@ set nowrap
 colorscheme molokai
 
 highlight ColorColumn ctermbg=235 guibg=#E6E6E6
-highlight MatchParen cterm=bold ctermbg=none ctermfg=white
+"highlight MatchParen cterm=bold ctermbg=none ctermfg=white
 set colorcolumn=120
 set ruler
 let g:session_autoload = 'yes'
