@@ -23,6 +23,8 @@ Plugin 'scrooloose/syntastic'
 Plugin 'racer-rust/vim-racer'
 Plugin 'aperezdc/vim-template'
 Plugin 'Chiel92/vim-autoformat'
+"Plugin 'pelodelfuego/vim-swoop'
+Plugin 'terryma/vim-multiple-cursors'
 call vundle#end()
 
 filetype plugin indent on
@@ -82,7 +84,7 @@ let g:autoformat_retab = 1
 let g:autoformat_remove_trailing_spaces = 1
 
 " rust
-let g:rustfmt_autosave = 1
+let g:rustfmt_autosave = 0
 
 " history of changes
 if version >= 700
