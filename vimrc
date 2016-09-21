@@ -11,6 +11,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'L9'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'klen/python-mode'
 Plugin 'tell-k/vim-autopep8'
@@ -23,8 +24,9 @@ Plugin 'scrooloose/syntastic'
 Plugin 'racer-rust/vim-racer'
 Plugin 'aperezdc/vim-template'
 Plugin 'Chiel92/vim-autoformat'
-"Plugin 'pelodelfuego/vim-swoop'
+Plugin 'jacoborus/tender'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'sickill/vim-monokai'
 call vundle#end()
 
 filetype plugin indent on
@@ -42,6 +44,7 @@ set number
 set guifont=Terminus\ 12
 set linespace=3
 set nowrap
+"set termguicolors
 colorscheme molokai
 
 highlight ColorColumn ctermbg=235 guibg=#E6E6E6
@@ -113,6 +116,7 @@ inoremap <C-@> <C-x><C-o>
 let g:ScreenShellGnuScreenVerticalSupport = 'native'
 "airline plugin settings
 let g:airline_powerline_fonts = 1
+let g:airline_theme = 'dark'
 let g:airline#extensions#tabline#enabled = 1
 
 let g:syntastic_always_populate_loc_list = 1
@@ -134,6 +138,9 @@ let g:DevIconsEnableFoldersOpenClose = 1
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {} " needed
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['rs'] = '*'
 let g:templates_directory = expand('~/.vim/templates')
+
+let g:SuperTabContextDefaultCompletionType = "<c-n>"
+let g:SuperTabDefaultCompletionType = "<c-n>"
 
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
     exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
@@ -159,4 +166,3 @@ call NERDTreeHighlightFile('sh', 'Magenta', 'none', '#ff00ff', '#151515')
 let pymode_lint_unmodified = 1
 set mouse=a
 runtime! ftplugin/man.vim
-
