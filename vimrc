@@ -26,7 +26,6 @@ Plugin 'aperezdc/vim-template'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'jacoborus/tender'
 Plugin 'terryma/vim-multiple-cursors'
-Plugin 'sickill/vim-monokai'
 call vundle#end()
 
 filetype plugin indent on
@@ -41,14 +40,17 @@ set visualbell
 set laststatus=2
 set relativenumber
 set number
-set guifont=Terminus\ 12
-set linespace=3
+set guifont=Anonymice\ Powerline\ Plus\ Nerd\ File\ Types\ Mono\ 12
+"set linespace=3
 set nowrap
+"set background=light
 "set termguicolors
-colorscheme molokai
+"highlight Normal ctermbg=NONE
+"highlight nonText ctermbg=NONE
+colorscheme pyte
 
 highlight ColorColumn ctermbg=235 guibg=#E6E6E6
-highlight MatchParen cterm=bold ctermbg=none ctermfg=white
+"highlight MatchParen cterm=bold ctermbg=none ctermfg=white
 set colorcolumn=120
 set ruler
 let g:session_autoload = 'yes'
@@ -112,11 +114,13 @@ nmap <silent> <C-Up> :wincmd k<CR>
 nmap <silent> <C-Down> :wincmd j<CR>
 nmap <silent> <C-Left> :wincmd h<CR>
 nmap <silent> <C-Right> :wincmd l<CR>
+" map buffer close without losing split window
+nmap <C-d> :bp\|bd # <CR>
 inoremap <C-@> <C-x><C-o>
 let g:ScreenShellGnuScreenVerticalSupport = 'native'
 "airline plugin settings
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'dark'
+let g:airline_theme = 'papercolor'
 let g:airline#extensions#tabline#enabled = 1
 
 let g:syntastic_always_populate_loc_list = 1
@@ -142,27 +146,30 @@ let g:templates_directory = expand('~/.vim/templates')
 let g:SuperTabContextDefaultCompletionType = "<c-n>"
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
-function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
-    exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
-    exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
-endfunction
+"function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+"exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+"exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+"endfunction
 
-call NERDTreeHighlightFile('q', 'green', 'none', 'green', '#151515')
-call NERDTreeHighlightFile('python', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('rs', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
-call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
-call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
-call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
-call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
-call NERDTreeHighlightFile('sh', 'Magenta', 'none', '#ff00ff', '#151515')
+"call NERDTreeHighlightFile('q', 'green', 'none', 'green', '#151515')
+"call NERDTreeHighlightFile('python', 'yellow', 'none', 'yellow', '#151515')
+"call NERDTreeHighlightFile('rs', 'yellow', 'none', 'yellow', '#151515')
+"call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
+"call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
+"call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#151515')
+"call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
+"call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
+"call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
+"call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
+"call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
+"call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
+"call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
+"call NERDTreeHighlightFile('sh', 'Magenta', 'none', '#ff00ff', '#151515')
 
 :nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 let pymode_lint_unmodified = 1
 set mouse=a
 runtime! ftplugin/man.vim
+" Temporary bindings for Rust developing:
+nmap <F9> :!cargo run <CR>
+nmap <F10> :RustFmt <CR>
