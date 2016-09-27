@@ -26,6 +26,7 @@ Plugin 'aperezdc/vim-template'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'jacoborus/tender'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'NLKNguyen/papercolor-theme'
 call vundle#end()
 
 filetype plugin indent on
@@ -40,7 +41,8 @@ set visualbell
 set laststatus=2
 set relativenumber
 set number
-set guifont=Anonymice\ Powerline\ Plus\ Nerd\ File\ Types\ Mono\ 12
+"set guifont=Anonymice\ Powerline\ Plus\ Nerd\ File\ Types\ Mono\ 12
+set guifont=Sauce\ Code\ Powerline\ Plus\ Nerd\ File\ Types\ Mono\ 10
 "set linespace=3
 set nowrap
 "set background=light
@@ -116,7 +118,7 @@ nmap <silent> <C-Left> :wincmd h<CR>
 nmap <silent> <C-Right> :wincmd l<CR>
 " map buffer close without losing split window
 nmap <C-d> :bp\|bd # <CR>
-inoremap <C-@> <C-x><C-o>
+inoremap <C-Space> <C-x><C-o>
 let g:ScreenShellGnuScreenVerticalSupport = 'native'
 "airline plugin settings
 let g:airline_powerline_fonts = 1
@@ -166,7 +168,7 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 "call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
 "call NERDTreeHighlightFile('sh', 'Magenta', 'none', '#ff00ff', '#151515')
 
-:nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 let pymode_lint_unmodified = 1
 set mouse=a
 runtime! ftplugin/man.vim
