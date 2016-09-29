@@ -6,16 +6,14 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'tpope/vim-git'
 Plugin 'tpope/vim-fugitive'
 Plugin 'L9'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ryanoasis/vim-devicons'
-Plugin 'klen/python-mode'
+"Plugin 'klen/python-mode'
 Plugin 'tell-k/vim-autopep8'
-Plugin 'ervandew/screen'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'ervandew/supertab'
@@ -24,9 +22,11 @@ Plugin 'scrooloose/syntastic'
 Plugin 'racer-rust/vim-racer'
 Plugin 'aperezdc/vim-template'
 Plugin 'Chiel92/vim-autoformat'
-Plugin 'jacoborus/tender'
 Plugin 'terryma/vim-multiple-cursors'
-Plugin 'NLKNguyen/papercolor-theme'
+"Plugin 'tomasr/molokai'
+Plugin 'reedes/vim-colors-pencil'
+Plugin 'fatih/molokai'
+Plugin 'w0ng/vim-hybrid'
 call vundle#end()
 
 filetype plugin indent on
@@ -42,17 +42,17 @@ set laststatus=2
 set relativenumber
 set number
 "set guifont=Anonymice\ Powerline\ Plus\ Nerd\ File\ Types\ Mono\ 12
-set guifont=Sauce\ Code\ Powerline\ Plus\ Nerd\ File\ Types\ Mono\ 10
+"set guifont=Sauce\ Code\ Powerline\ Plus\ Nerd\ File\ Types\ Mono\ 10
+"set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ Mono\ 10
 "set linespace=3
 set nowrap
-"set background=light
-"set termguicolors
-"highlight Normal ctermbg=NONE
-"highlight nonText ctermbg=NONE
-colorscheme pyte
-
-highlight ColorColumn ctermbg=235 guibg=#E6E6E6
-"highlight MatchParen cterm=bold ctermbg=none ctermfg=white
+set background=dark
+set termguicolors
+highlight Normal ctermbg=NONE
+highlight nonText ctermbg=NONE
+"syntax enable
+colorscheme hybrid
+highlight MatchParen cterm=bold ctermbg=none ctermfg=white
 set colorcolumn=120
 set ruler
 let g:session_autoload = 'yes'
@@ -119,10 +119,9 @@ nmap <silent> <C-Right> :wincmd l<CR>
 " map buffer close without losing split window
 nmap <C-d> :bp\|bd # <CR>
 inoremap <C-Space> <C-x><C-o>
-let g:ScreenShellGnuScreenVerticalSupport = 'native'
 "airline plugin settings
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'papercolor'
+let g:airline_theme = 'dark'
 let g:airline#extensions#tabline#enabled = 1
 
 let g:syntastic_always_populate_loc_list = 1
