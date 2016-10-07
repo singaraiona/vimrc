@@ -27,6 +27,11 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'reedes/vim-colors-pencil'
 Plugin 'fatih/molokai'
 Plugin 'w0ng/vim-hybrid'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'yggdroot/indentline'
+Plugin 'gregsexton/gitv'
+Plugin 'kshenoy/vim-signature'
+
 call vundle#end()
 
 filetype plugin indent on
@@ -117,7 +122,7 @@ nmap <silent> <C-Down> :wincmd j<CR>
 nmap <silent> <C-Left> :wincmd h<CR>
 nmap <silent> <C-Right> :wincmd l<CR>
 " map buffer close without losing split window
-nmap <C-d> :bp\|bd # <CR>
+nmap <C-k> :bp\|bd # <CR>
 inoremap <C-Space> <C-x><C-o>
 "airline plugin settings
 let g:airline_powerline_fonts = 1
@@ -147,6 +152,7 @@ let g:templates_directory = expand('~/.vim/templates')
 let g:SuperTabContextDefaultCompletionType = "<c-n>"
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
+let g:indentLine_char = '┆'
 "function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
 "exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
 "exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
