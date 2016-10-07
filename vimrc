@@ -55,7 +55,7 @@ set background=dark
 set termguicolors
 highlight Normal ctermbg=NONE
 highlight nonText ctermbg=NONE
-"syntax enable
+syntax enable
 colorscheme hybrid
 highlight MatchParen cterm=bold ctermbg=none ctermfg=white
 set colorcolumn=120
