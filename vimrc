@@ -17,20 +17,18 @@ Plugin 'tell-k/vim-autopep8'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'ervandew/supertab'
-Plugin 'rust-lang/rust.vim'
-Plugin 'scrooloose/syntastic'
-Plugin 'racer-rust/vim-racer'
 Plugin 'aperezdc/vim-template'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'terryma/vim-multiple-cursors'
-"Plugin 'tomasr/molokai'
-Plugin 'reedes/vim-colors-pencil'
-Plugin 'fatih/molokai'
 Plugin 'w0ng/vim-hybrid'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'yggdroot/indentline'
 Plugin 'gregsexton/gitv'
 Plugin 'kshenoy/vim-signature'
+Plugin 'scrooloose/syntastic'
+Plugin 'racer-rust/vim-racer'
+Plugin 'timonv/vim-cargo'
+Plugin 'rust-lang/rust.vim'
 
 call vundle#end()
 
@@ -133,8 +131,10 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_python_checkers = ['python']
+let g:syntastic_rust_checkers = ['rustc', '-Zno-trans']
 
-"bdevicons plugin
+"webdevicons plugin
 let g:webdevicons_enable = 1
 let g:webdevicons_enable_nerdtree = 1
 let g:webdevicons_enable_airline_tabline = 1
