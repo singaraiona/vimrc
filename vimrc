@@ -9,9 +9,10 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'L9'
 Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'ryanoasis/vim-devicons'
+Plugin 'ryanoasis/vim-webdevicons'
 "Plugin 'klen/python-mode'
 Plugin 'tell-k/vim-autopep8'
 Plugin 'scrooloose/nerdcommenter'
@@ -123,7 +124,7 @@ nmap <silent> <C-Right> :wincmd l<CR>
 nmap <C-k> :bp\|bd # <CR>
 inoremap <C-Space> <C-x><C-o>
 "airline plugin settings
-let g:airline_powerline_fonts = 1
+"let g:airline_powerline_fonts = 1
 let g:airline_theme = 'dark'
 let g:airline#extensions#tabline#enabled = 1
 
@@ -134,6 +135,17 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers = ['python']
 let g:syntastic_rust_checkers = ['rustc', '-Zno-trans']
 
+let g:NERDTreeIndicatorMapCustom = {
+            \ "Modified"  : "✹",
+            \ "Staged"    : "✚",
+            \ "Untracked" : "✭",
+            \ "Renamed"   : "➜",
+            \ "Unmerged"  : "═",
+            \ "Deleted"   : "✖",
+            \ "Dirty"     : "✗",
+            \ "Clean"     : "✔︎",
+            \ "Unknown"   : "?"
+            \ }
 "webdevicons plugin
 let g:webdevicons_enable = 1
 let g:webdevicons_enable_nerdtree = 1
