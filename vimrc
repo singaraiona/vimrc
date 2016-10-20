@@ -13,6 +13,7 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ryanoasis/vim-webdevicons'
+Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 "Plugin 'klen/python-mode'
 Plugin 'tell-k/vim-autopep8'
 Plugin 'scrooloose/nerdcommenter'
@@ -124,7 +125,7 @@ nmap <silent> <C-Right> :wincmd l<CR>
 nmap <C-k> :bp\|bd # <CR>
 inoremap <C-Space> <C-x><C-o>
 "airline plugin settings
-"let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 1
 let g:airline_theme = 'dark'
 let g:airline#extensions#tabline#enabled = 1
 
@@ -157,33 +158,18 @@ let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
 let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
 let g:WebDevIconsUnicodeDecorateFileNodesDefaultSymbol = '*'
 let g:DevIconsEnableFoldersOpenClose = 1
-let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {} " needed
-let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['rs'] = '*'
+"let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {} " needed
+"let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['rs'] = '*'
 let g:templates_directory = expand('~/.vim/templates')
+
+let g:NERDTreeFileExtensionHighlightFullName = 1
+let g:NERDTreeExactMatchHighlightFullName = 1
+let g:NERDTreePatternMatchHighlightFullName = 1
 
 let g:SuperTabContextDefaultCompletionType = "<c-n>"
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
 let g:indentLine_char = '┆'
-"function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
-"exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
-"exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
-"endfunction
-
-"call NERDTreeHighlightFile('q', 'green', 'none', 'green', '#151515')
-"call NERDTreeHighlightFile('python', 'yellow', 'none', 'yellow', '#151515')
-"call NERDTreeHighlightFile('rs', 'yellow', 'none', 'yellow', '#151515')
-"call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
-"call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
-"call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#151515')
-"call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
-"call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
-"call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
-"call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
-"call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
-"call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
-"call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
-"call NERDTreeHighlightFile('sh', 'Magenta', 'none', '#ff00ff', '#151515')
 
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 let pymode_lint_unmodified = 1
