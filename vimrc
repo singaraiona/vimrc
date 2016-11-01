@@ -175,6 +175,3 @@ nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 let pymode_lint_unmodified = 1
 set mouse=a
 runtime! ftplugin/man.vim
-" Temporary bindings for Rust developing:
-nmap <F9> :!cargo run <CR>
-nmap <F10> :RustFmt <CR>
