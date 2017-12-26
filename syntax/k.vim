@@ -36,15 +36,15 @@ syn keyword kTodo TODO FIXME FIX XXX NOTE GOTCHA contained
 syn match kExit "^\\\\" contained
 
 " Comments, trailing, wholeline and multi-line
-syn region kComment start="^\s*/" end="$" keepend excludenl contains=kTodo
-syn region kComment start="\s/" end="$" keepend excludenl contains=kTodo
+syn region kComment start="^\s*//" end="$" keepend excludenl contains=kTodo
+syn region kComment start="\s//" end="$" keepend excludenl contains=kTodo
 " multiline comment, bare \ means rest of file is comment
 syn region kComment start="^\\\\*\s*$" end="\%$" contains=kTodo,kExit
 " multiline comment start / .. end \ 
-syn region kComment start="^/\s*$" end="^\\\s*$" keepend excludenl contains=kTodo
+syn region kComment start="^//\s*$" end="^\\\s*$" keepend excludenl contains=kTodo
 " emphasised comment
-syn region kSpecialComment start="^\s*//" end="$" keepend excludenl contains=kTodo
-syn region kSpecialComment start="\s//" end="$" keepend excludenl contains=kTodo
+"syn region kSpecialComment start="^\s*//" end="$" keepend excludenl contains=kTodo
+"syn region kSpecialComment start="\s//" end="$" keepend excludenl contains=kTodo
 
 " Numbers, dates etc 
 syn match kNumber "-\=\(\d\+\)\=\.\d*\(e[+-]\=\d\+\)\=[ef]\="
