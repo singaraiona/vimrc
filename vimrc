@@ -12,10 +12,12 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'patmok/qvim'
 Plug 'thaerkh/vim-indentguides'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
+Plug 'terryma/vim-multiple-cursors'
+Plug 'ervandew/supertab'
 call plug#end()
 
 filetype plugin indent on
-set so=999
+"set so=999
 set termguicolors
 set nocompatible
 set fileencodings=utf-8
@@ -41,14 +43,13 @@ set ruler
 set hidden
 set mouse=a
 set lazyredraw
-"let g:session_autoload = 'yes'
-"let g:session_autosave = 'yes'
+set clipboard=unnamedplus
+" let g:session_autoload = 'yes'
+" let g:session_autosave = 'yes'
 " rust
 autocmd BufReadPost *.rs setlocal filetype=rust
 " Required for operations modifying multiple buffers like rename.
-let g:LanguageClient_serverCommands = {
-    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
-    \ }
+let g:LanguageClient_serverCommands = { 'rust': ['rustup', 'run', 'nightly-2017-10-24', 'rls'], }
 " Automatically start language servers.
 let g:LanguageClient_autoStart = 1
 " Maps K to hover, gd to goto definition, F2 to rename
@@ -70,9 +71,7 @@ nmap <C-k> :bp\|bd # <CR>
 "airline plugin settings
 let g:airline_powerline_fonts = 0
 let g:airline_theme = 'onehalfdark'
-let g:airline#extensions#tabline#enabled = 1
-"let g:airline_left_sep = '▶'
-"let g:airline_right_sep = '◀'
+let g:airline#extensions#tabline#enabled = 0
 
 let g:NERDTreeIndicatorMapCustom = {
             \ "Modified"  : "✹",
@@ -85,17 +84,4 @@ let g:NERDTreeIndicatorMapCustom = {
             \ "Clean"     : "✔︎",
             \ "Unknown"   : "?"
             \ }
-"webdevicons plugin
-"let g:webdevicons_enable = 1
-"let g:webdevicons_enable_nerdtree = 1
-"let g:webdevicons_enable_airline_tabline = 1
-"let g:webdevicons_enable_airline_statusline = 1
-"let g:webdevicons_enable_flagship_statusline = 1
-"let g:webdevicons_conceal_nerdtree_brackets = 1
-"let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
-"let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
-"let g:WebDevIconsUnicodeDecorateFileNodesDefaultSymbol = '*'
-"let g:DevIconsEnableFoldersOpenClose = 1
-"let g:templates_directory = expand('~/.vim/templates')
-"let g:indentLine_char = '┆'
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
