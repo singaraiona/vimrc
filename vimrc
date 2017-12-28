@@ -14,6 +14,11 @@ Plug 'thaerkh/vim-indentguides'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'terryma/vim-multiple-cursors'
 Plug 'ervandew/supertab'
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
+Plug 'tpope/vim-rhubarb'
+Plug 'idanarye/vim-merginal'
+Plug 'sbdchd/neoformat'
 call plug#end()
 
 filetype plugin indent on
